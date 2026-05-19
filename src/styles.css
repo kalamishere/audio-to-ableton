@@ -1,0 +1,282 @@
+/* ── Tokens (Palette A — Ableton V1 May 2026 refresh) ──
+   Neutral B&W chrome with Plasma orange as the only color. Matches V1's
+   `:root` exactly so the funnel feels like the same family. */
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --surface-sunk: #f5f5f5;
+  --ink-1: #0a0a0a;
+  --ink-2: #404040;
+  --ink-3: #737373;
+  --ink-4: #a3a3a3;
+  --border: #e5e5e5;
+  --border-strong: #d4d4d4;
+  --accent: #ff5722;
+  --accent-soft: #fff1ec;
+  --accent-edge: #ffd4c2;
+  --ok: #1f9d55;
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+}
+
+/* ── Canonical Plasma chase + halo + emerge (May 2026, matches V1) ──
+   Same five keyframes used in V1's splash, header, and play button so the
+   motion language is identical across the funnel ↔ desktop boundary. */
+.plasma-mark .arm-0,
+.plasma-mark .arm-1,
+.plasma-mark .arm-2,
+.plasma-mark .arm-3,
+.plasma-mark .arm-4,
+.plasma-mark .arm-5,
+.plasma-mark .arm-6,
+.plasma-mark .arm-7 { opacity: var(--arm-dim, .4); }
+.plasma-mark.arcs-flicker .arm-0 { animation: armpulse 1.6s ease-in-out infinite 0.0s both; }
+.plasma-mark.arcs-flicker .arm-1 { animation: armpulse 1.6s ease-in-out infinite 0.2s both; }
+.plasma-mark.arcs-flicker .arm-2 { animation: armpulse 1.6s ease-in-out infinite 0.4s both; }
+.plasma-mark.arcs-flicker .arm-3 { animation: armpulse 1.6s ease-in-out infinite 0.6s both; }
+.plasma-mark.arcs-flicker .arm-4 { animation: armpulse 1.6s ease-in-out infinite 0.8s both; }
+.plasma-mark.arcs-flicker .arm-5 { animation: armpulse 1.6s ease-in-out infinite 1.0s both; }
+.plasma-mark.arcs-flicker .arm-6 { animation: armpulse 1.6s ease-in-out infinite 1.2s both; }
+.plasma-mark.arcs-flicker .arm-7 { animation: armpulse 1.6s ease-in-out infinite 1.4s both; }
+@keyframes armpulse {
+  0%, 70%, 100% { opacity: var(--arm-dim, .4); }
+  12%, 28%      { opacity: 1; }
+}
+@keyframes halo {
+  0%, 100% { transform: scale(1);    opacity: .6; }
+  50%      { transform: scale(1.18); opacity: 1;  }
+}
+@keyframes emerge {
+  0%   { opacity: 0; transform: scale(.55) rotate(-12deg); filter: blur(8px); }
+  60%  { opacity: 1; transform: scale(1.04) rotate(0deg);  filter: blur(0);   }
+  100% { transform: scale(1) rotate(0deg); }
+}
+@keyframes btn-glow {
+  0%, 100% { box-shadow: 0 1px 2px rgba(255,87,34,.25); }
+  50%      { box-shadow: 0 0 0 4px rgba(255,87,34,.18), 0 1px 2px rgba(255,87,34,.35); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .plasma-mark .arm-0,
+  .plasma-mark .arm-1,
+  .plasma-mark .arm-2,
+  .plasma-mark .arm-3,
+  .plasma-mark .arm-4,
+  .plasma-mark .arm-5,
+  .plasma-mark .arm-6,
+  .plasma-mark .arm-7 { opacity: 1; animation: none !important; }
+  * { transition-duration: 0ms !important; animation-duration: 0ms !important; }
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--ink-1);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Header ── */
+.hd {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 40px; max-width: 1100px; margin: 0 auto;
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+.logo { color: var(--accent); width: 22px; height: 22px; display: inline-block; }
+.logo svg { width: 100%; height: 100%; }
+.brand-name { font-size: 16px; }
+.nav { display: flex; gap: 22px; }
+.nav a { color: var(--ink-2); text-decoration: none; font-size: 14px; }
+.nav a:hover { color: var(--accent); }
+
+/* ── Stages ── */
+main { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+.stage { display: none; }
+.stage.on { display: block; }
+
+/* ── Landing ── */
+.hero-title {
+  font-size: 52px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em;
+  margin: 40px 0 14px; max-width: 780px;
+}
+.hero-sub {
+  font-size: 19px; color: var(--ink-2); margin: 0 0 36px; max-width: 640px;
+}
+.drop {
+  border: 2px dashed var(--border-strong);
+  border-radius: var(--r-xl);
+  background: var(--surface);
+  padding: 56px 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color .15s, background .15s, transform .12s;
+}
+.drop:hover, .drop.dragover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+.drop-glyph { font-size: 42px; margin-bottom: 12px; }
+.drop-title { font-size: 22px; font-weight: 600; margin-bottom: 6px; }
+.drop-sub { color: var(--ink-3); font-size: 14px; }
+.link {
+  background: none; border: 0; padding: 0; color: var(--accent);
+  cursor: pointer; font: inherit; text-decoration: underline;
+}
+.trust {
+  display: flex; gap: 28px; flex-wrap: wrap;
+  margin-top: 22px; font-size: 13px; color: var(--ink-3);
+}
+
+.how { margin-top: 80px; }
+.how h2 { font-size: 24px; font-weight: 700; margin: 0 0 22px; }
+.how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.how-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: 22px;
+  display: grid; grid-template-columns: 36px 1fr; gap: 16px; align-items: start;
+}
+.how-card.hl { border-color: var(--accent); background: var(--accent-soft); }
+.how-num {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--bg); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: var(--ink-2);
+}
+.how-card.hl .how-num { background: var(--accent); color: #fff; border-color: var(--accent); }
+.how-h { font-weight: 600; margin-bottom: 4px; }
+.how-p { color: var(--ink-2); font-size: 14px; }
+
+/* ── Working ── */
+.stage-working { padding-top: 100px; text-align: center; }
+.working-mark-stack {
+  position: relative; width: 200px; height: 200px;
+  margin: 0 auto 32px; display: grid; place-items: center;
+}
+.working-halo {
+  position: absolute; inset: 0; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,87,34,.14) 0%, transparent 65%);
+  animation: halo 3.6s ease-in-out infinite;
+}
+.working-plasma {
+  width: 140px; height: 140px; color: var(--accent);
+  filter: drop-shadow(0 4px 16px rgba(255,87,34,.18));
+  animation: emerge 1.2s cubic-bezier(.2,.8,.25,1) both;
+  position: relative;
+}
+.working-title { font-size: 32px; font-weight: 600; letter-spacing: -.02em; margin: 0 0 8px; color: var(--ink-1); }
+.working-sub {
+  font-family: ui-monospace, Menlo, monospace;
+  color: var(--ink-3); margin: 0 0 28px; font-size: 13px;
+}
+.progress {
+  width: 260px; height: 3px; background: rgba(0,0,0,.06); border-radius: 99px;
+  margin: 0 auto; overflow: hidden; position: relative;
+}
+.progress-bar {
+  width: 0%; height: 100%; background: var(--accent);
+  transition: width .3s ease-out;
+}
+/* When progress is indeterminate (no width set yet), walk a 38% slice
+   across — same motion as V1's splash. */
+.progress.indeterminate .progress-bar {
+  width: 38%;
+  animation: slide 2.4s ease-in-out infinite;
+  transition: none;
+}
+@keyframes slide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(262%); }
+}
+
+/* ── Result ── */
+.stage-result { padding-top: 40px; }
+.result-summary {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  margin-bottom: 28px;
+}
+.result-stat {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); padding: 18px 20px; text-align: center;
+}
+.stat-num { font-size: 28px; font-weight: 700; }
+.stat-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--ink-3); margin-top: 4px;
+}
+.result-pitchmap-wrap {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); padding: 18px;
+  margin-bottom: 36px;
+}
+.result-pitchmap {
+  width: 100%; height: 180px; display: block;
+}
+
+.result-ctas {
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 22px;
+}
+.cta-primary {
+  background: var(--accent-soft);
+  border: 1.5px solid var(--accent);
+  border-radius: var(--r-lg); padding: 28px;
+}
+.cta-eyebrow {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--accent); font-weight: 700; margin-bottom: 6px;
+}
+.cta-h { font-size: 24px; font-weight: 700; margin: 0 0 10px; }
+.cta-p { color: var(--ink-2); margin: 0 0 18px; }
+.cta-meta { color: var(--ink-3); font-size: 12px; margin-top: 10px; }
+
+.cta-secondary {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: 22px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.cta-h-small {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--ink-3); font-weight: 700; margin-bottom: 4px;
+}
+
+.btn {
+  display: inline-block; padding: 12px 18px; border-radius: 10px;
+  font: inherit; font-weight: 500; cursor: pointer; border: 1px solid var(--border);
+  background: var(--surface); color: var(--ink-1);
+  text-decoration: none; text-align: center;
+  transition: border-color .12s, background .12s, transform .08s, box-shadow .2s;
+}
+.btn:hover { border-color: var(--border-strong); }
+.btn:active { transform: translateY(1px); }
+/* Primary CTA — accent bg, breathing glow ring (matches V1's btn-glow on
+   the play button while playing). Same rhythm everywhere V1 is "alive". */
+.btn.primary {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+  font-size: 16px; padding: 14px 22px; font-weight: 600;
+  animation: btn-glow 1.6s ease-in-out infinite;
+}
+.btn.primary:hover { background: #e84a14; border-color: #e84a14; }
+.btn.ghost { background: transparent; }
+.btn.subtle { color: var(--ink-3); border-color: transparent; }
+.btn.subtle:hover { color: var(--ink-1); }
+
+/* ── Footer ── */
+.ft {
+  max-width: 1100px; margin: 60px auto 0; padding: 24px 40px;
+  border-top: 1px solid var(--border); display: flex;
+  justify-content: space-between; color: var(--ink-3); font-size: 12px;
+}
+.ft a { color: var(--ink-2); }
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  .hd, main, .ft { padding-left: 20px; padding-right: 20px; }
+  .hero-title { font-size: 38px; }
+  .how-grid { grid-template-columns: 1fr; }
+  .result-summary { grid-template-columns: repeat(2, 1fr); }
+  .result-ctas { grid-template-columns: 1fr; }
+}

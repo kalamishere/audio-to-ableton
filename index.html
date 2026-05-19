@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audio → Ableton — drop a track, get a project</title>
+  <meta name="description" content="Drop any audio file. We'll transcribe it to MIDI and hand you an Ableton-ready project. Free." />
+  <link rel="preconnect" href="https://rsms.me" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <link rel="stylesheet" href="/src/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="/plasma-mark.svg" />
+</head>
+<body>
+  <header class="hd">
+    <div class="brand">
+      <span class="logo" aria-hidden="true"><svg class="plasma-mark" id="brandMark" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path class="arm-0" d="M 51.095 37.046 L 48.589 31.387 L 55.887 26.389 L 47.732 20.086 L 58.628 15.393 L 46.876 8.785 L 53.959 3.167" stroke-width="2.6"/><path class="arm-1" d="M 58.343 40.031 L 59.547 33.959 L 68.391 34.066 L 65.343 24.22 L 76.956 26.644 L 71.139 14.481 L 80.165 13.957" stroke-width="2.6"/><path class="arm-2" d="M 62.999 50.151 L 68.462 47.241 L 73.976 54.156 L 79.67 45.566 L 85.143 56.092 L 90.879 43.89 L 96.997 50.547" stroke-width="2.6"/><path class="arm-3" d="M 59.422 58.957 L 65.405 60.542 L 64.739 69.362 L 74.758 66.943 L 71.603 78.38 L 84.11 73.343 L 84.063 82.384" stroke-width="2.6"/><path class="arm-4" d="M 50.121 62.999 L 53.145 68.4 L 46.347 74.058 L 55.055 79.571 L 44.645 85.262 L 56.965 90.742 L 50.437 96.998" stroke-width="2.6"/><path class="arm-5" d="M 40.579 58.958 L 38.694 64.853 L 29.919 63.743 L 31.83 73.871 L 20.567 70.144 L 24.965 82.889 L 15.939 82.385" stroke-width="2.6"/><path class="arm-6" d="M 37.029 50.869 L 31.812 54.199 L 25.772 47.737 L 20.769 56.748 L 14.488 46.684 L 9.726 59.298 L 3.105 53.141" stroke-width="2.6"/><path class="arm-7" d="M 40.499 41.127 L 34.502 39.596 L 35.089 30.771 L 25.092 33.279 L 28.144 21.814 L 15.683 26.962 L 15.65 17.921" stroke-width="2.6"/><circle cx="50" cy="50" r="13" fill="currentColor" stroke="none"/><circle cx="50" cy="50" r="5.46" fill="#fff" stroke="none"/></svg></span>
+      <span class="brand-name">Audio → Ableton</span>
+    </div>
+    <nav class="nav">
+      <a href="#how">How it works</a>
+      <a href="https://pollinations.ai" target="_blank" rel="noopener">By Pollinations</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Stage 1 — landing -->
+    <section class="stage stage-landing on" id="stageLanding">
+      <h1 class="hero-title">Drop a track or a video. Get an Ableton project.</h1>
+      <p class="hero-sub">
+        Audio file, voice memo, video clip — anything with sound.
+        We'll transcribe it to MIDI and hand you a <b>.als</b> file ready to open in Live.
+      </p>
+
+      <div class="drop" id="drop">
+        <input type="file" id="file" accept="audio/*,video/*,.wav,.mp3,.aif,.flac,.ogg,.m4a,.mp4,.mov,.webm,.mkv" hidden />
+        <div class="drop-inner">
+          <div class="drop-glyph">🎵</div>
+          <div class="drop-title">Drop audio or video here</div>
+          <div class="drop-sub">or <button class="link" id="pickBtn">pick a file</button> · WAV, MP3, M4A, MP4, MOV · up to 60s for best results</div>
+        </div>
+      </div>
+
+      <div class="trust">
+        <span>● Runs in your browser — your audio never leaves your machine</span>
+        <span>● Free, no signup</span>
+        <span>● Powered by Spotify's Basic Pitch model</span>
+      </div>
+
+      <section class="how" id="how">
+        <h2>What you get</h2>
+        <div class="how-grid">
+          <div class="how-card">
+            <div class="how-num">1</div>
+            <div>
+              <div class="how-h">A MIDI file</div>
+              <div class="how-p">The notes we detected. Drag into any DAW.</div>
+            </div>
+          </div>
+          <div class="how-card hl">
+            <div class="how-num">2</div>
+            <div>
+              <div class="how-h">An Ableton project</div>
+              <div class="how-p">A <b>.als</b> with the notes pre-loaded into a MIDI track. Double-click to open.</div>
+            </div>
+          </div>
+          <div class="how-card">
+            <div class="how-num">3</div>
+            <div>
+              <div class="how-h">A way to keep going</div>
+              <div class="how-p">Open it in <b>Ableton V1</b> and say <i>"make this a synth bass"</i> — in any language.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- Stage 2 — working -->
+    <section class="stage stage-working" id="stageWorking">
+      <div class="working-mark-stack">
+        <div class="working-halo"></div>
+        <svg class="working-plasma plasma-mark arcs-flicker" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-label="Working">
+          <path class="arm-0" d="M 51.095 37.046 L 48.589 31.387 L 55.887 26.389 L 47.732 20.086 L 58.628 15.393 L 46.876 8.785 L 53.959 3.167" stroke-width="2.6"/>
+          <path class="arm-1" d="M 58.343 40.031 L 59.547 33.959 L 68.391 34.066 L 65.343 24.22 L 76.956 26.644 L 71.139 14.481 L 80.165 13.957" stroke-width="2.6"/>
+          <path class="arm-2" d="M 62.999 50.151 L 68.462 47.241 L 73.976 54.156 L 79.67 45.566 L 85.143 56.092 L 90.879 43.89 L 96.997 50.547" stroke-width="2.6"/>
+          <path class="arm-3" d="M 59.422 58.957 L 65.405 60.542 L 64.739 69.362 L 74.758 66.943 L 71.603 78.38 L 84.11 73.343 L 84.063 82.384" stroke-width="2.6"/>
+          <path class="arm-4" d="M 50.121 62.999 L 53.145 68.4 L 46.347 74.058 L 55.055 79.571 L 44.645 85.262 L 56.965 90.742 L 50.437 96.998" stroke-width="2.6"/>
+          <path class="arm-5" d="M 40.579 58.958 L 38.694 64.853 L 29.919 63.743 L 31.83 73.871 L 20.567 70.144 L 24.965 82.889 L 15.939 82.385" stroke-width="2.6"/>
+          <path class="arm-6" d="M 37.029 50.869 L 31.812 54.199 L 25.772 47.737 L 20.769 56.748 L 14.488 46.684 L 9.726 59.298 L 3.105 53.141" stroke-width="2.6"/>
+          <path class="arm-7" d="M 40.499 41.127 L 34.502 39.596 L 35.089 30.771 L 25.092 33.279 L 28.144 21.814 L 15.683 26.962 L 15.65 17.921" stroke-width="2.6"/>
+          <circle cx="50" cy="50" r="13" fill="currentColor" stroke="none"/>
+          <circle cx="50" cy="50" r="5.46" fill="#fff" stroke="none"/>
+        </svg>
+      </div>
+      <h2 class="working-title" id="workingTitle">Transcribing…</h2>
+      <p class="working-sub" id="workingSub">Loading the Basic Pitch model. First run takes ~5 seconds.</p>
+      <div class="progress indeterminate"><div class="progress-bar" id="progressBar"></div></div>
+    </section>
+
+    <!-- Stage 3 — result -->
+    <section class="stage stage-result" id="stageResult">
+      <div class="result-summary">
+        <div class="result-stat"><div class="stat-num" id="statNotes">–</div><div class="stat-label">notes</div></div>
+        <div class="result-stat"><div class="stat-num" id="statBpm">–</div><div class="stat-label">tempo (est.)</div></div>
+        <div class="result-stat"><div class="stat-num" id="statKey">–</div><div class="stat-label">key (est.)</div></div>
+        <div class="result-stat"><div class="stat-num" id="statDur">–</div><div class="stat-label">duration</div></div>
+      </div>
+
+      <div class="result-pitchmap-wrap">
+        <svg class="result-pitchmap" id="pitchMap" viewBox="0 0 100 100" preserveAspectRatio="none"></svg>
+      </div>
+
+      <div class="result-ctas">
+        <div class="cta-primary">
+          <div class="cta-eyebrow">What you actually want →</div>
+          <h3 class="cta-h">Open this in Ableton with one click</h3>
+          <p class="cta-p">
+            Ableton V1 turns your transcription into a live project, picks instruments,
+            and lets you direct it in plain language — <i>"make it darker"</i>, <i>"agrega un bajo"</i>, in any language. Free during beta.
+          </p>
+          <a class="btn primary" id="downloadV1" href="#">Download Ableton V1 — free</a>
+          <div class="cta-meta" id="ctaMeta">macOS · Apple Silicon &amp; Intel</div>
+        </div>
+
+        <div class="cta-secondary">
+          <div class="cta-h-small">Or just take the files</div>
+          <button class="btn ghost" id="downloadMidi">Download MIDI</button>
+          <button class="btn ghost" id="downloadAls">Download Ableton project (.als)</button>
+          <button class="btn ghost subtle" id="tryAnother">Try another track</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ft">
+    <span>Made with <a href="https://pollinations.ai" target="_blank" rel="noopener">pollinations.ai</a>.</span>
+    <span>Runs entirely in your browser. We never see your audio.</span>
+  </footer>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
