@@ -1,4 +1,4 @@
-# audio-to-ableton
+# Audio → Ableton
 
 Drop a track or video, get a MIDI file and a ready-to-open Ableton Live project (`.als`). Runs entirely in your browser — your audio never leaves the machine.
 
